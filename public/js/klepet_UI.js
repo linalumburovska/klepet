@@ -1,5 +1,4 @@
 function divElementEnostavniTekst(sporocilo) {
-  
     sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
      sporocilo = dodajSlika(sporocilo);
     return $('<div style="font-weight: bold"></div>').html(sporocilo);
@@ -137,10 +136,8 @@ function dodajSlika(sporocilo) {
   for(var i=0; i < zborovi.length; i++) {
     if((zborovi[i].indexOf('http://')==0 || zborovi[i].indexOf('https://')==0) && ((zborovi[i].indexOf('.png')==zborovi[i].length - 4) ||
         (zborovi[i].indexOf('.jpg')==zborovi[i].length - 4) || (zborovi[i].indexOf('.gif')==zborovi[i].length - 4))) {
-          sporocilo+="<img class ='slika' src= '"+ zborovi[i] +"'>";
-        }
-    
+            sporocilo+="<img class ='slika' src= '"+ zborovi[i] +"'>";
+     }
   }
-  
   return sporocilo;
 }
