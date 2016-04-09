@@ -7,6 +7,7 @@ function divElementEnostavniTekst(sporocilo) {
 }
 
 function divElementHtmlTekst(sporocilo) {
+  sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace(/&lt;img/g, '<img').replace(/png\' \/&gt;/g, 'png\' />');
   sporocilo=prikaciVideo(sporocilo);
   return $('<div></div>').html('<i>' + sporocilo + '</i>');
 }
