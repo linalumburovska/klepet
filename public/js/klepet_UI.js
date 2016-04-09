@@ -136,9 +136,11 @@ function prikaciVideo(sporocilo) {
   var zborovi = sporocilo.split(" ");
   for(var i= 0 ; i < zborovi.length; i++) {
     if(zborovi[i].indexOf('https://www.youtube.com/watch?v=') == 0 ) {
-    
-     sporocilo += '<iframe class="zaVideo" src="https://www.youtube.com/embed/'+ zborovi[i].replace("https://www.youtube.com/watch?v=", "")
-     +'" allowfullscreen></iframe>' ;      
+    sporocilo=sporocilo.replace(zborovi[i],'<a href="'+zborovi[i]+'">'+zborovi[i]+'</a>');  
+     var tmp = zborovi[i];
+     tmp=tmp.replace("&list=","?list=");
+     sporocilo += '<br><iframe class="zaVideo" src="https://www.youtube.com/embed/'+ tmp.replace("https://www.youtube.com/watch?v=", "")
+     +'" allowfullscreen></iframe><br>' ;      
     }
     
   }
