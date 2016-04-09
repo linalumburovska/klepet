@@ -1,14 +1,13 @@
 function divElementEnostavniTekst(sporocilo) {
-  var jeSmesko = sporocilo.indexOf('http://sandbox.lavbic.net/teaching/OIS/gradivo/') > -1;
-  if (jeSmesko) {
     sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
+     sporocilo = dodajSlika(sporocilo);
     return $('<div style="font-weight: bold"></div>').html(sporocilo);
-  } else {
-    return $('<div style="font-weight: bold;"></div>').text(sporocilo);
-  }
+   
 }
 
 function divElementHtmlTekst(sporocilo) {
+  sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
+   sporocilo = dodajSlika(sporocilo) ;
   return $('<div></div>').html('<i>' + sporocilo + '</i>');
 }
 
@@ -140,4 +139,17 @@ function dodajSmeske(vhodnoBesedilo) {
       preslikovalnaTabela[smesko] + "' />");
   }
   return vhodnoBesedilo;
+}
+
+function dodajSlika(sporocilo) {
+  var zborovi = sporocilo.split(" ");
+  
+  for(var i=0; i < zborovi.length; i++) {
+    if((zborovi[i].indexOf('http://')==0 || zborovi[i].indexOf('https://')==0) && ((zborovi[i].indexOf('.png')==zborovi[i].length - 4) ||
+        (zborovi[i].indexOf('.jpg')==zborovi[i].length - 4) || (zborovi[i].indexOf('.gif')==zborovi[i].length - 4))) {
+            sporocilo=sporocilo.replace(zborovi[i],'<a href="'+zborovi[i]+'">'+zborovi[i]+'</a>');
+            sporocilo+="<br><img class ='slika' src= '"+ zborovi[i] +"'><br>";
+     }
+  }
+  return sporocilo;
 }
