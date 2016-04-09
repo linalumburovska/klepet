@@ -7,7 +7,7 @@ function divElementEnostavniTekst(sporocilo) {
 
 function divElementHtmlTekst(sporocilo) {
   sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
-   sporocilo = dodajSlika(sporocilo);
+   sporocilo = dodajSlika(sporocilo) ;
   return $('<div></div>').html('<i>' + sporocilo + '</i>');
 }
 
