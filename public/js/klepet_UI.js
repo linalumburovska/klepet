@@ -3,7 +3,13 @@ function divElementEnostavniTekst(sporocilo) {
     sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
      sporocilo = dodajSlika(sporocilo);
     return $('<div style="font-weight: bold"></div>').html(sporocilo);
+<<<<<<< HEAD
    
+=======
+  } else {
+    return $('<div style="font-weight: bold;"></div>').text(sporocilo) ;
+  }
+>>>>>>> dregljaj
 }
 
 function divElementHtmlTekst(sporocilo) {
@@ -122,6 +128,14 @@ $(document).ready(function() {
       $('#poslji-sporocilo').focus();
     });
     
+  });
+  
+  socket.on('dregljaj', function() {
+    $('#vsebina').jrumble() ;
+    $('#vsebina').trigger('startRumble');
+    setTimeout(function() {
+      $('#vsebina').trigger('stopRumble');
+    }, 1500);
   });
 
   setInterval(function() {
