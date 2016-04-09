@@ -136,7 +136,7 @@ function prikaciVideo(sporocilo) {
   for(var i= 0 ; i < zborovi.length; i++) {
     if(zborovi[i].indexOf('https://www.youtube.com/watch?v=') == 0 ) {
     
-     sporocilo+='<iframe src="https://www.youtube.com/embed/'+ zborovi[i].replace("https://www.youtube.com/watch?v=", "")
+     sporocilo+='<iframe class="zaVideo" src="https://www.youtube.com/embed/'+ zborovi[i].replace("https://www.youtube.com/watch?v=", "")
      +'" allowfullscreen></iframe>';      
     }
     
