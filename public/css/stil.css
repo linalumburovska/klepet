@@ -59,6 +59,7 @@ a {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #seznam-uporabnikov div {
   border-bottom: 1px solid #eee;
   cursor: pointer;
@@ -71,4 +72,10 @@ a {
   width:200px;
   padding-left: 20px;
 >>>>>>> slike
+=======
+.zaVideo {
+  width: 200px;
+  height: 150px;
+  margin-left: 20px;
+>>>>>>> youtube
 }

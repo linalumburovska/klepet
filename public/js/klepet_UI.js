@@ -1,4 +1,5 @@
 function divElementEnostavniTekst(sporocilo) {
+<<<<<<< HEAD
     sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
      sporocilo = dodajSlika(sporocilo);
     return $('<div style="font-weight: bold"></div>').html(sporocilo);
@@ -9,6 +10,19 @@ function divElementHtmlTekst(sporocilo) {
   sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
    sporocilo = dodajSlika(sporocilo) ;
   return $('<div></div>').html('<i>' + sporocilo + '</i>');
+=======
+  
+    sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace('&lt;img', '<img').replace('png\' /&gt;', 'png\' />');
+    sporocilo = prikaciVideo(sporocilo);
+    return $('<div style="font-weight: bold"></div>').html(sporocilo);
+     
+}
+
+function divElementHtmlTekst(sporocilo) {
+  sporocilo = sporocilo.replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace(/&lt;img/g, '<img').replace(/png\' \/&gt;/g, 'png\' />');
+  sporocilo=prikaciVideo(sporocilo);
+  return $('<div></div>').html('<i>' + sporocilo + '</i>') ;
+>>>>>>> youtube
 }
 
 function procesirajVnosUporabnika(klepetApp, socket) {
@@ -141,6 +155,7 @@ function dodajSmeske(vhodnoBesedilo) {
   return vhodnoBesedilo;
 }
 
+<<<<<<< HEAD
 function dodajSlika(sporocilo) {
   var zborovi = sporocilo.split(" ");
   
@@ -150,6 +165,19 @@ function dodajSlika(sporocilo) {
             sporocilo=sporocilo.replace(zborovi[i],'<a href="'+zborovi[i]+'">'+zborovi[i]+'</a>');
             sporocilo+="<br><img class ='slika' src= '"+ zborovi[i] +"'><br>";
      }
+=======
+function prikaciVideo(sporocilo) {
+  var zborovi = sporocilo.split(" ");
+  for(var i= 0 ; i < zborovi.length; i++) {
+    if(zborovi[i].indexOf('https://www.youtube.com/watch?v=') == 0 ) {
+    sporocilo=sporocilo.replace(zborovi[i],'<a href="'+zborovi[i]+'">'+zborovi[i]+'</a>');  
+     var tmp = zborovi[i];
+     tmp=tmp.replace("&list=","?list=");
+     sporocilo += '<br><iframe class="zaVideo" src="https://www.youtube.com/embed/'+ tmp.replace("https://www.youtube.com/watch?v=", "")
+     +'" allowfullscreen></iframe><br>' ;      
+    }
+    
+>>>>>>> youtube
   }
   return sporocilo;
 }
