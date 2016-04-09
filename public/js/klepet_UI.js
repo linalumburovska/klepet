@@ -102,7 +102,7 @@ $(document).ready(function() {
   });
   
   socket.on('dregljaj', function() {
-    $('#vsebina').jrumble();
+    $('#vsebina').jrumble() ;
     $('#vsebina').trigger('startRumble');
     setTimeout(function() {
       $('#vsebina').trigger('stopRumble');
