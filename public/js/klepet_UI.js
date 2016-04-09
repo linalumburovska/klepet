@@ -137,7 +137,8 @@ function dodajSlika(sporocilo) {
   for(var i=0; i < zborovi.length; i++) {
     if((zborovi[i].indexOf('http://')==0 || zborovi[i].indexOf('https://')==0) && ((zborovi[i].indexOf('.png')==zborovi[i].length - 4) ||
         (zborovi[i].indexOf('.jpg')==zborovi[i].length - 4) || (zborovi[i].indexOf('.gif')==zborovi[i].length - 4))) {
-            sporocilo+="<img class ='slika' src= '"+ zborovi[i] +"'>";
+            sporocilo=sporocilo.replace(zborovi[i],'<a href="'+zborovi[i]+'">'+zborovi[i]+'</a>');
+            sporocilo+="<br><img class ='slika' src= '"+ zborovi[i] +"'><br>";
      }
   }
   return sporocilo;
